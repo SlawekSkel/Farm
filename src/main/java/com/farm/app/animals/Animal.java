@@ -7,11 +7,15 @@ import java.util.Random;
  */
 public class Animal {
 
+    private final Sex sex;
+
     private float weightInGram = 1f;
-    private Integer ageInDays =1;
-    private Sex sex;
+    private float dailyWaightGainGram;
+
+    private Integer ageInDays =0;
+
     private Integer dayOfGrowht;
-    private float gain;
+    private float multiplicationGain;
 
     public Animal() {
 
@@ -22,14 +26,6 @@ public class Animal {
             this.sex = Sex.FEMALE;
         }
 
-    }
-
-    public float getWeight() {
-        return weightInGram;
-    }
-
-    public void setWeight(float weight) {
-        this.weightInGram = weight;
     }
 
     public Integer getAgeInDays() {
@@ -52,11 +48,28 @@ public class Animal {
         this.dayOfGrowht = dayOfGrowht;
     }
 
-    public float getGain() {
-        return gain;
+    public float getMultiplicationGain() {
+        return multiplicationGain;
     }
 
-    public void setGain(float gain) {
-        this.gain = gain;
+    public float getWeightInGram() {
+        return weightInGram;
     }
+
+    public void setWeightInGram(float weightInGram) {
+        this.weightInGram = weightInGram;
+    }
+
+    public void setMultiplicationGain(float multiplicationGain) {
+        this.multiplicationGain = multiplicationGain;
+    }
+
+    public float getDailyWaightGainGram() {
+        return dailyWaightGainGram;
+    }
+
+    public void setDailyWaightGainGram(float dailyWaightGainGram) {
+        this.dailyWaightGainGram = dailyWaightGainGram;
+    }
+
 }

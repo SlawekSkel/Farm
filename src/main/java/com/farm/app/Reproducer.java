@@ -13,7 +13,6 @@ public class Reproducer {
     int fishCounter = 0;
     int sheepCounter = 0;
 
-
     public Reproducer() {
     }
 
@@ -31,7 +30,7 @@ public class Reproducer {
         fishCounter++;
         if(fishCounter == inventory.getFishes().get(0).getDayOfGrowht()){
 
-            int increase = (int)(inventory.fishes.size()*inventory.fishes.get(0).getGain());
+            int increase = (int)(inventory.fishes.size()*inventory.fishes.get(0).getMultiplicationGain());
 
             for (int i=0;i<increase; i++){
 
@@ -48,12 +47,12 @@ public class Reproducer {
         sheepCounter++;
         if(sheepCounter == inventory.getSheeps().get(0).getDayOfGrowht()){
 
-            int increase = (int)(inventory.sheeps.size()*inventory.sheeps.get(0).getGain());
+            int increase = (int)(inventory.sheeps.size()*inventory.sheeps.get(0).getMultiplicationGain());
             for (int i=0;i<increase; i++){
 
                 inventory.getSheeps().add(new Sheep());
             }
-            LOGGER.info("The birth of {} sheeps, Total: {} ", increase, inventory.sheeps.size());
+            LOGGER.trace("The birth of {} sheeps, Total: {} ", increase, inventory.sheeps.size());
 
             sheepCounter = 0;
         }

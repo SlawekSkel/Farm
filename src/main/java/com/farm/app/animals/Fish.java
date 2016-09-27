@@ -9,7 +9,10 @@ public class Fish extends Animal{
     public Fish() {
         super();
         setDayOfGrowht(9);
-        setGain(0.3f);
+        setMultiplicationGain(0.3f);
+        setWeightInGram(1);
+        setDailyWaightGainGram(0.7f);
+
     }
 
     @Override

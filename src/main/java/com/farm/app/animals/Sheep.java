@@ -8,8 +8,9 @@ public class Sheep extends Mammal {
     public Sheep() {
         super();
         setDayOfGrowht(90);
-        setGain(0.7f);
-        setWeight(5000);
+        setMultiplicationGain(0.7f);
+        setWeightInGram(5000);
+        setDailyWaightGainGram(250);
 
     }
 

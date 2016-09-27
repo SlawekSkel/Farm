@@ -17,6 +17,9 @@ public class Inventory {
     List<Sheep> sheeps = new ArrayList<Sheep>();
     List<Fish> fishes = new ArrayList<Fish>();
 
+    private float sheepsWeightInKG;
+    private float fishesWeightInKG;
+
     public List<Sheep> getSheeps() {
         return sheeps;
     }
@@ -39,10 +42,10 @@ public class Inventory {
         for (int i = 0; i < numberOfSheeps; i++) {
             this.sheeps.add(new Sheep());
         }
-
     }
 
     public void initiateNumberOfFish(Integer numberOfFish) {
+
         this.fishes.clear();
         for (int i = 0; i < numberOfFish; i++) {
 
@@ -50,13 +53,29 @@ public class Inventory {
         }
     }
 
+    public float getFishesWeightInKG() {
+        return fishesWeightInKG;
+    }
+
+    public void setFishesWeightInKG(float fishesWeightInKG) {
+        this.fishesWeightInKG = fishesWeightInKG;
+    }
+
+    public float getSheepsWeightInKG() {
+        return sheepsWeightInKG;
+    }
+
+    public void setSheepsWeightInKG(float sheepsWeightInKG) {
+        this.sheepsWeightInKG = sheepsWeightInKG;
+    }
+
     @Override
     public String toString() {
         return "Inventory{" +
-                "sheeps=" + sheeps +
-                ", fishes=" + fishes +
-                ", numberOfSheeps=" + sheeps.size() +
-                ", numberOfFish=" + fishes.size() +
+                " numberOfSheeps=" + sheeps.size() +
+                ", numberOfFishes=" + fishes.size() +
+                ", weightOfSheepsKG=" + sheepsWeightInKG +
+                ", weightOfFishesKG=" + fishesWeightInKG +
                 '}';
     }
 }

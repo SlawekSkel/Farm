@@ -19,8 +19,11 @@ public class App
         inventory.initiateNumberOfFish(15);
         inventory.initiateNumberOfSheeps(8);
 
+
         KowalskiFarm.setInventory(inventory);
         Reproducer reproducer = new Reproducer();
+        Vegetator vegetator = new Vegetator();
+        InventoryScale inventoryScale = new InventoryScale();
 
         LOGGER.info("Evolving cycle");
 
@@ -28,10 +31,17 @@ public class App
         while(DAY_COUNTER <= 130) {
 
             reproducer.reproduce(KowalskiFarm.getInventory());
-            //grower.grow(KowalskiFarm.getInventory());
+            vegetator.vegetate(KowalskiFarm.getInventory());
+            inventoryScale.masure(KowalskiFarm.getInventory(),DAY_COUNTER);
 
             TimeUnit.SECONDS.sleep(DAY_INTERVAL);
             DAY_COUNTER +=DAY_INTERVAL;
+
+            if(DAY_COUNTER == 100){
+
+                TimeUnit.SECONDS.sleep(DAY_INTERVAL);
+
+            }
 
         }
 
