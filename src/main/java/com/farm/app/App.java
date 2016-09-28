@@ -21,7 +21,7 @@ public class App
 
 
         KowalskiFarm.setInventory(inventory);
-        Reproducer reproducer = new Reproducer();
+        KowalskiFactory kowalskiFactory = new KowalskiFactory();
         Vegetator vegetator = new Vegetator();
         InventoryScale inventoryScale = new InventoryScale();
 
@@ -30,7 +30,7 @@ public class App
         int DAY_COUNTER = 1;
         while(DAY_COUNTER <= 130) {
 
-            reproducer.reproduce(KowalskiFarm.getInventory());
+            kowalskiFactory.born(KowalskiFarm.getInventory());
             vegetator.vegetate(KowalskiFarm.getInventory());
             inventoryScale.masure(KowalskiFarm.getInventory(),DAY_COUNTER);
 

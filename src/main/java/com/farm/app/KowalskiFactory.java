@@ -8,17 +8,14 @@ import org.apache.logging.log4j.Logger;
 /**
  * Created by slawekskel on 9/22/16.
  */
-public class Reproducer {
+public class KowalskiFactory implements BornFactory{
 
-    int fishCounter = 0;
-    int sheepCounter = 0;
+    static int fishCounter = 0;
+    static int sheepCounter = 0;
 
-    public Reproducer() {
-    }
+    private static final Logger LOGGER = LogManager.getLogger(KowalskiFactory.class);
 
-    private static final Logger LOGGER = LogManager.getLogger(Reproducer.class);
-
-    public void reproduce(Inventory inventory){
+    public void born(Inventory inventory){
 
         fishGrowth(inventory);
         sheepGrowth(inventory);
@@ -31,13 +28,11 @@ public class Reproducer {
         if(fishCounter == inventory.getFishes().get(0).getDayOfGrowht()){
 
             int increase = (int)(inventory.fishes.size()*inventory.fishes.get(0).getMultiplicationGain());
-
             for (int i=0;i<increase; i++){
 
                 inventory.getFishes().add(new Fish());
             }
             LOGGER.trace("The birth of {} fishes, Total: {} ", increase, inventory.fishes.size());
-
             fishCounter = 0;
         }
     }
@@ -53,7 +48,6 @@ public class Reproducer {
                 inventory.getSheeps().add(new Sheep());
             }
             LOGGER.trace("The birth of {} sheeps, Total: {} ", increase, inventory.sheeps.size());
-
             sheepCounter = 0;
         }
     }
