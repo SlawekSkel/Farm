@@ -1,5 +1,6 @@
 package com.farm.app;
 
+import com.farm.app.machines.JDeereTractor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,6 +13,11 @@ public class App
     private static final Farm KowalskiFarm = Farm.getInstance();
 
     public static void main(String[] args) throws InterruptedException {
+
+
+        JDeereTractor jDeereTractor = new JDeereTractor();
+        jDeereTractor.tank(500f);
+
         LOGGER.info("Wellcome on our farm");
 
         LOGGER.info("Initiation of KowalskiFarm farm");
@@ -19,14 +25,13 @@ public class App
         inventory.initiateNumberOfFish(15);
         inventory.initiateNumberOfSheeps(8);
 
-
         KowalskiFarm.setInventory(inventory);
         KowalskiFactory kowalskiFactory = new KowalskiFactory();
         Vegetator vegetator = new Vegetator();
         InventoryScale inventoryScale = new InventoryScale();
 
-        LOGGER.info("Evolving cycle");
 
+        LOGGER.info("Evolving cycle");
         int DAY_COUNTER = 1;
         while(DAY_COUNTER <= 130) {
 
@@ -34,14 +39,17 @@ public class App
             vegetator.vegetate(KowalskiFarm.getInventory());
             inventoryScale.masure(KowalskiFarm.getInventory(),DAY_COUNTER);
 
+            jDeereTractor.work(40);
+
+
             TimeUnit.SECONDS.sleep(DAY_INTERVAL);
             DAY_COUNTER +=DAY_INTERVAL;
 
-            if(DAY_COUNTER == 100){
-
-                TimeUnit.SECONDS.sleep(DAY_INTERVAL);
-
-            }
+//            if(DAY_COUNTER == 100){
+//
+//                TimeUnit.SECONDS.sleep(DAY_INTERVAL);
+//
+//            }
 
         }
 
